@@ -1205,7 +1205,7 @@ class Jira(AtlassianRestAPI):
         """
         return self.delete("rest/auth/1/websudo")
 
-    def user_find_by_user_string(self, username, start=0, limit=50, include_inactive_users=False,
+    def user_find_by_user_string(self, query, start=0, limit=50, include_inactive_users=False,
                                  include_active_users=True):
         """
         Fuzzy search using username and display name
@@ -1218,7 +1218,7 @@ class Jira(AtlassianRestAPI):
         :return:
         """
         url = 'rest/api/2/user/search'
-        params = {'username': username,
+        params = {'query': query,
                   'includeActive': include_active_users,
                   'includeInactive': include_inactive_users,
                   'startAt': start,
